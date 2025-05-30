@@ -1,4 +1,6 @@
-package io.github.rest4j.core.exception;
+package io.github.rest4j.core;
+
+import io.github.rest4j.core.exception.BadRequestException;
 
 /**
  * 业务异常
@@ -41,5 +43,13 @@ public class BizException extends BadRequestException {
 
     public BizException(int code, String message, Throwable cause) {
         super(Math.max(code, defaultCode), message, cause);
+    }
+
+    public BizException(BizError bizError) {
+        super(Math.max(bizError.getCode(), defaultCode), bizError.getMessage(), (Throwable) null);
+    }
+
+    public BizException(BizError bizError, Throwable cause) {
+        super(Math.max(bizError.getCode(), defaultCode), bizError.getMessage(), cause);
     }
 }

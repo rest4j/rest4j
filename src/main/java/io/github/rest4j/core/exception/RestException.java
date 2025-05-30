@@ -8,7 +8,7 @@ import org.springframework.web.server.ResponseStatusException;
  *
  * @since 1.0
  */
-public abstract class RestException extends ResponseStatusException {
+abstract class RestException extends ResponseStatusException {
 
     private final int code;
 

@@ -6,7 +6,6 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
-import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 /**
@@ -16,41 +15,35 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
  */
 public abstract class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(BizException.class)
-    public ResponseEntity<Object> handleBizException(BizException ex, WebRequest request) {
-        logger.error(request.getDescription(Boolean.TRUE), ex);
-        return super.handleExceptionInternal(ex, null, ex.getHeaders(), ex.getStatusCode(), request);
-    }
-
     @ExceptionHandler(BadRequestException.class)
     public ResponseEntity<Object> handleBadRequestException(BadRequestException ex, WebRequest request) {
-        logger.error(request.getDescription(Boolean.TRUE), ex);
+        logger.warn(request.getDescription(true), ex);
         return super.handleExceptionInternal(ex, null, ex.getHeaders(), ex.getStatusCode(), request);
     }
 
     @ExceptionHandler(InternalServerErrorException.class)
     public ResponseEntity<Object> handleInternalServerErrorException(InternalServerErrorException ex,
                                                                      WebRequest request) {
-        logger.error(request.getDescription(Boolean.TRUE), ex);
+        logger.error(request.getDescription(true), ex);
         return super.handleExceptionInternal(ex, null, ex.getHeaders(), ex.getStatusCode(), request);
     }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> handleExceptionInternal(Exception ex, WebRequest request) {
-        return this.handleExceptionInternal(ex, null, new HttpHeaders(),
-                HttpStatus.INTERNAL_SERVER_ERROR, request);
+        return this.handleExceptionInternal(ex, null, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
     }
 
     @Override
     public ResponseEntity<Object> handleExceptionInternal(Exception ex, Object body, HttpHeaders headers,
                                                           HttpStatusCode statusCode, WebRequest request) {
-        ResponseStatusException wrapper;
+        RestException wrapper;
         if (statusCode.is4xxClientError()) {
             wrapper = new BadRequestException(ex);
+            logger.warn(request.getDescription(true), wrapper);
         } else {
             wrapper = new InternalServerErrorException(ex);
+            logger.error(request.getDescription(true), wrapper);
         }
-        logger.error(request.getDescription(true), wrapper);
         return super.handleExceptionInternal(wrapper, null, wrapper.getHeaders(),
                 wrapper.getStatusCode(), request);
     }
