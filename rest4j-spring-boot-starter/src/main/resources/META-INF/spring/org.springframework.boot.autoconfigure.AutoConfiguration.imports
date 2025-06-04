@@ -1,1 +1,2 @@
 io.github.rest4j.RestAutoConfiguration
+io.github.rest4j.DefaultExceptionHandler
