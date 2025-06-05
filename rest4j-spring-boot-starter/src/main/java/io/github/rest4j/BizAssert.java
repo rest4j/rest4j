@@ -12,7 +12,7 @@ import java.util.Map;
  * 业务断言
  *
  * @see io.github.rest4j.BizException
- * @since 0.1.3
+ * @since 0.1.4
  */
 @UtilityClass
 public class BizAssert {
