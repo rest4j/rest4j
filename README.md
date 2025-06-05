@@ -11,7 +11,7 @@ This is an example file with default selections.
 
 ## Install
 
-```
+```xml
 <dependency>
     <groupId>io.github.rest4j</groupId>
     <artifactId>rest4j-spring-boot-starter</artifactId>
@@ -21,7 +21,9 @@ This is an example file with default selections.
 
 ## Usage
 
-```
+```yaml
+rest4j:
+  default-exception-handler: true # 是否开启默认异常处理
 ```
 
 ## Contributing
