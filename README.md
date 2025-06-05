@@ -15,7 +15,7 @@ This is a toolkit for [spring-boot](https://spring.io/projects/spring-boot).
 <dependency>
     <groupId>io.github.rest4j</groupId>
     <artifactId>rest4j-spring-boot-starter</artifactId>
-    <version>0.1.4</version>
+    <version>0.1.5</version>
 </dependency>
 ```
 
