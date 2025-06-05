@@ -7,7 +7,7 @@
 [![Maven Central Version](https://img.shields.io/maven-central/v/io.github.rest4j/rest4j?label=maven%20central)](https://central.sonatype.com/artifact/io.github.rest4j/rest4j)
 [![GitHub License](https://img.shields.io/github/license/rest4j/rest4j)](LICENSE)
 
-This is an example file with default selections.
+This is a toolkit for [spring-boot](https://spring.io/projects/spring-boot).
 
 ## Install
 
@@ -23,7 +23,7 @@ This is an example file with default selections.
 
 ```yaml
 rest4j:
-  default-exception-handler: true # 是否开启默认异常处理
+  default-exception-handler: true
 ```
 
 ## Contributing
@@ -32,4 +32,4 @@ PRs accepted.
 
 ## License
 
-MIT © REST4J
+[MIT © REST4J](LICENSE)
