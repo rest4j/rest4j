@@ -12,10 +12,11 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  */
 @Getter
 @Setter
-@ConfigurationProperties(prefix = "rest")
+@ConfigurationProperties(prefix = "rest4j")
 public class RestProperties {
+
     /**
      * 是否开启默认异常处理
      */
-    private Boolean defaultExceptionHandler = false;
+    private Boolean defaultExceptionHandler = true;
 }
