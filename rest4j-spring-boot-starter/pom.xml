@@ -4,7 +4,7 @@
     <parent>
         <groupId>io.github.rest4j</groupId>
         <artifactId>rest4j</artifactId>
-        <version>0.1.5-SNAPSHOT</version>
+        <version>0.1.5</version>
     </parent>
     <artifactId>rest4j-spring-boot-starter</artifactId>
     <name>rest4j-spring-boot-starter</name>
@@ -14,7 +14,7 @@
         <connection>scm:git:git://github.com/rest4j/rest4j.git</connection>
         <developerConnection>scm:git:ssh://github.com:rest4j/rest4j.git</developerConnection>
         <url>https://github.com/rest4j/rest4j</url>
-        <tag>HEAD</tag>
+        <tag>v0.1.5</tag>
     </scm>
     <dependencies>
         <dependency>
