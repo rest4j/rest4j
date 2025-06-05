@@ -6,7 +6,7 @@
     <version>0.1.5-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>rest4j</name>
-    <description>rest4j</description>
+    <description>This is a toolkit for spring-boot.</description>
     <url>https://github.com/rest4j/rest4j</url>
     <organization>
         <name>rest4j</name>
